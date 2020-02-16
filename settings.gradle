@@ -1,0 +1,2 @@
+include ':app', ':feature-currencyconverter', ':common'
+rootProject.name='TestSberBankKarlin'

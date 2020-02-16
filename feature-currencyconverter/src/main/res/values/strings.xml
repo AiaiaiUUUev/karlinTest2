@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">feture-currencyconverter</string>
+    <string name="calculate">Посчитать</string>
+    <string name="ok">OK</string>
+    <string name="cancel">ОТМЕНА</string>
+    <string name="exception_occured_when_loading">Произошла ошибка во время загрузки</string>
+    <string name="enter_the_value">Введите число</string>
+    <string name="dots">.....</string>
+    <string name="please_enter_the_value">Пожалуйста введите значение</string>
+</resources>
