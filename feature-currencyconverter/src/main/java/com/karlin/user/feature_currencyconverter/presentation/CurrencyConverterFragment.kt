@@ -107,19 +107,25 @@ class CurrencyConverterFragment : Fragment(), CurrencyConverterFragmentView {
 
     override fun showProgressBar() = progressBar.show()
     override fun hideProgressBar() = progressBar.hide()
-    override fun hideSwipeRefresh() { swipeRefresh.isRefreshing = false }
+    override fun hideSwipeRefresh() {
+        swipeRefresh.isRefreshing = false
+    }
 
-    override fun showErrorDialog(error: CurrencyFailure) {
+    override fun handleError(error: CurrencyFailure) {
         when (error) {
-            CurrencyFailure.ExceptionOnLoad -> displayDialog(getString(R.string.exception_occured_when_loading))
+            CurrencyFailure.ExceptionOnLoading -> displayDialog(getString(R.string.exception_occured_when_loading))
+            is CurrencyFailure.ExceptionNetworkConnection -> {
+                error.currencyEntity?.let { setCurrencies(it) }
+                displayDialog(getString(R.string.no_internet_connection))
+            }
+            is CurrencyFailure.ExceptionCannotLoadData -> displayDialog(getString(R.string.cannot_load_data))
         }
     }
 
     private fun displayDialog(message: String) {
         AlertDialog.Builder(requireContext())
             .setTitle(message)
-            .setPositiveButton(getString(R.string.ok)) { dialogInterface, i -> dialogInterface.dismiss() }
-            .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.dismiss() }
+            .setPositiveButton(getString(R.string.ok)) { dialogInterface, _ -> dialogInterface.dismiss() }
             .show()
     }
 

@@ -19,13 +19,14 @@ ext {
   retrofit2AdapterVersion = "2.7.1"
   roomVersion = "2.2.3"
   rxjavaVersion = "2.2.9"
-  rxAndroidVersion = "2.0.2"
+  rxAndroidVersion = "2.1.1"
 
   //Unit Testing
-  robolectricVersion = '3.8'
   junitVersion = '4.13'
   junitExtVersion = '1.1.1'
   mockitoVersion = '1.4.0'
+  kotlinMockitoVersion = '1.5.0'
+  mockkVersion = '1.9.3'
 
   //Acceptance Testing
   espressoVersion = '3.2.0'

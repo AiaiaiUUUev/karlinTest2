@@ -25,7 +25,11 @@ interface CurrenciesRepository {
         override fun getCurrencies(base: String?): Single<Either<CurrencyFailure, CurrencyEntity>> {
             return when (networkHandler.isConnected) {
                 true -> currenciesRemoteDataSource.getCurrencies(base ?: RUB_CURRENCY)
-                else -> currenciesLocalDataSource.getCurrencies(base ?: RUB_CURRENCY)
+                else -> {
+                    currenciesLocalDataSource
+                        .getCurrencies(base ?: RUB_CURRENCY)
+                        .map { Either.Left(CurrencyFailure.ExceptionNetworkConnection(it)) }
+                }
             }
         }
     }

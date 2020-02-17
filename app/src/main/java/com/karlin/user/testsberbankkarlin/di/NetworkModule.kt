@@ -3,7 +3,7 @@ package com.karlin.user.testsberbankkarlin.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.karlin.user.testsberbankkarlin.BuildConfig
-import com.karlin.user.testsberbankkarlin.utils.Logger
+import com.karlin.user.common.util.Logger
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

@@ -61,9 +61,12 @@ dependencies {
 
     //test
     testImplementation "junit:junit:$junitVersion"
+    // mocks
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$kotlinMockitoVersion"
     androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    
+
     //project
     implementation project(":common")
 }

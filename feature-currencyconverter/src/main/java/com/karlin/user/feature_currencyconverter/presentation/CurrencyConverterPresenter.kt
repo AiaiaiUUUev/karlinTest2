@@ -34,8 +34,8 @@ class CurrencyConverterPresenter @Inject constructor(
                 .doOnSubscribe { view.showProgressBar() }
                 .doFinally { view.hideProgressBar(); view.hideSwipeRefresh() }
                 .subscribe(
-                    { it.either(view::showErrorDialog, ::handleGetCurrencies) },
-                    { t -> t.printStackTrace() }
+                    { it.either(view::handleError, ::handleGetCurrencies) },
+                    { t -> view.handleError(CurrencyFailure.ExceptionCannotLoadData) }
                 )
         )
     }
@@ -46,7 +46,7 @@ class CurrencyConverterPresenter @Inject constructor(
 
     fun calculateCurrency(enteredValue: Double?, target: Double?) {
         val result = calculateCurrencyInteractor.execute(enteredValue, target)
-        result.either(view::showErrorDialog, view::showCalculatedValue)
+        result.either(view::handleError, view::showCalculatedValue)
     }
 
     fun onDestroy() = disposable.clear()

@@ -1,7 +1,7 @@
-package com.karlin.user.testsberbankkarlin.utils
+package com.karlin.user.common.util
 
 import android.util.Log
-import com.karlin.user.testsberbankkarlin.BuildConfig
+import com.karlin.user.common.BuildConfig
 
 /**
 // Created by Karlin Dmitriy on 16.02.2020.

@@ -1,6 +1,7 @@
 package com.karlin.user.feature_currencyconverter.exception
 
 import com.karlin.user.common.exception.Failure
+import com.karlin.user.feature_currencyconverter.data.entities.CurrencyEntity
 
 /**
 // Created by Karlin Dmitriy on 16.02.2020.
@@ -8,6 +9,8 @@ import com.karlin.user.common.exception.Failure
  */
 
 sealed class CurrencyFailure : Failure.FeatureFailure() {
-    object ExceptionOnLoad : CurrencyFailure()
+    class ExceptionNetworkConnection(val currencyEntity: CurrencyEntity? = null) : CurrencyFailure()
+    object ExceptionOnLoading : CurrencyFailure()
     object ExceptionOnCalculate : CurrencyFailure()
+    object ExceptionCannotLoadData : CurrencyFailure()
 }

@@ -7,7 +7,7 @@ interface CurrencyConverterFragmentView {
     fun setCurrencies(currencyEntity: CurrencyEntity)
     fun showProgressBar()
     fun hideProgressBar()
-    fun showErrorDialog(error: CurrencyFailure)
+    fun handleError(error: CurrencyFailure)
     fun showCalculatedValue(calculatedValue: Double)
     fun hideSwipeRefresh()
 }

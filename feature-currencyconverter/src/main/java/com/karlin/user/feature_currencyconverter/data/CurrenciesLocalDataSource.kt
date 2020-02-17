@@ -1,9 +1,7 @@
 package com.karlin.user.feature_currencyconverter.data
 
-import com.karlin.user.common.functional.Either
 import com.karlin.user.data.db.CurrenciesDaoImpl
 import com.karlin.user.feature_currencyconverter.data.entities.CurrencyEntity
-import com.karlin.user.feature_currencyconverter.exception.CurrencyFailure
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -14,7 +12,7 @@ import javax.inject.Inject
 
 class CurrenciesLocalDataSource @Inject constructor(private val dao: CurrenciesDaoImpl) {
 
-    fun getCurrencies(base: String): Single<Either<CurrencyFailure, CurrencyEntity>> {
-        return dao.getCurrencies(base).map { Either.Right(it) }
+    fun getCurrencies(base: String): Single<CurrencyEntity> {
+        return dao.getCurrencies(base)
     }
 }

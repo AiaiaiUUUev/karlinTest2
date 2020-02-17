@@ -31,7 +31,7 @@ class CurrenciesRemoteDataSource @Inject constructor(
                     dao.insertOrUpdate(currencyEntity!!)
                     Either.Right(currencyEntity)
                 } else {
-                    Either.Left(CurrencyFailure.ExceptionOnLoad)
+                    Either.Left(CurrencyFailure.ExceptionOnLoading)
                 }
             }
     }

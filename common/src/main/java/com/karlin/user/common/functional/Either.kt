@@ -27,4 +27,10 @@ sealed class Either<out L, out R> {
             is Left -> fnL(a)
             is Right -> fnR(b)
         }
+
+    fun getResponse(): Any? =
+        when (this) {
+            is Left -> a
+            is Right -> b
+        }
 }
